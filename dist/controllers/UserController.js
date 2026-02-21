@@ -1,9 +1,9 @@
-import User from '../models/User';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _User = require('../models/User'); var _User2 = _interopRequireDefault(_User);
 
 class UserController {
   async store(req, res) {
     try {
-      const novoUser = await User.create(req.body);
+      const novoUser = await _User2.default.create(req.body);
       const { id, nome, email } = novoUser;
       return res.json({ id, nome, email });
     }
@@ -17,7 +17,7 @@ class UserController {
   //index
   async index(req, res) {
     try {
-      const users = await User.findAll({
+      const users = await _User2.default.findAll({
         attributes: ['id', 'nome', 'email'],
       });
       return res.json(users);
@@ -31,7 +31,7 @@ class UserController {
   async show(req, res) {
     try {
       const { id } = req.params;
-      const users = await User.findByPk(id);
+      const users = await _User2.default.findByPk(id);
       const { nome, email } = users;
       return res.json({ id, nome, email });
     } catch (e) {
@@ -43,7 +43,7 @@ class UserController {
   //update
   async update(req, res) {
     try {
-      const users = await User.findByPk(req.userId);
+      const users = await _User2.default.findByPk(req.userId);
       if (!users) {
         return res.status(400).json({
           errors: ['Usuário não existe.']
@@ -63,7 +63,7 @@ class UserController {
   async delete(req, res) {
     try {
 
-      const users = await User.findByPk(req.userId);
+      const users = await _User2.default.findByPk(req.userId);
 
       if (!users) {
         return res.status(400).json({
@@ -83,4 +83,4 @@ class UserController {
 
 }
 
-export default new UserController(); //utilizo o new para exportar instanciado
+exports. default = new UserController(); //utilizo o new para exportar instanciado

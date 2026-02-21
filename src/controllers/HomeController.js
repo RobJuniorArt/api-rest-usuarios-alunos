@@ -1,11 +1,9 @@
-import Aluno from '../models/Aluno';
+import Aluno from '../models/Aluno';//eslint-disable-line
 
 class HomeController {
   async index(req, res) {
-    const novoAluno = await Aluno.create(req.body);
-    res.json({
-      novoAluno
-    });
+    //const novoAluno = await Aluno.create(req.body);
+    res.json('Index');
   }
 }
 
