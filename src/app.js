@@ -19,7 +19,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true })); //Permite que sua API receba dados de formulários complexos (comuns em sistemas web tradicionais).
     this.app.use(express.json());//A linha mais importante. Ela permite que sua API entenda dados enviados no formato JSON, que é o padrão de comunicação para aplicações modernas (como o React que você está estudando).
-    this.app.use(express.static(resolve(__dirname, 'uploads')));//A linha mais importante. Ela permite que sua API entenda dados enviados no formato JSON, que é o padrão de comunicação para aplicações modernas (como o React que você está estudando).
+    this.app.use(express.static(resolve(__dirname, '..', 'uploads', 'images')));//A linha mais importante. Ela permite que sua API entenda dados enviados no formato JSON, que é o padrão de comunicação para aplicações modernas (como o React que você está estudando).
   }
 
   routes() {
