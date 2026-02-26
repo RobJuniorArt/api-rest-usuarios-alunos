@@ -1,43 +1,21 @@
-🚀 API REST Alunos | Docker & Linux Server
-Esta é uma API RESTful completa para gerenciamento de alunos, usuários e upload de arquivos. O grande diferencial deste projeto é a sua infraestrutura: a API foi desenvolvida para ser escalável e roda em um servidor Linux físico (Home Server) totalmente containerizado com Docker.
+# 🚀 API REST Alunos & Usuários (Self-Hosted)
 
-🛠 Tecnologias Utilizadas
-Node.js & Express: Core da aplicação e roteamento.
+API robusta para gestão acadêmica, desenvolvida com **Node.js** e **TypeScript**. Este projeto é executado em um ambiente de infraestrutura própria via **Docker** em servidor Linux físico.
 
-TypeScript: Tipagem estática para um código mais seguro e brobust.
+## 🏗️ Diferencial de Infraestrutura
 
-Sequelize (MariaDB/MySQL): ORM para gestão do banco de dados de alunos e usuários.
+- **Docker & Docker Compose:** Todo o ambiente (Node.js + MariaDB/MySQL) é containerizado.
+- **Linux Server:** Hosteado em servidor local, simulando um ambiente real de produção com gestão de volumes.
 
-Sucrase & Nodemon: Workflow de desenvolvimento rápido.
+## 🛠️ Tecnologias
 
-Multer: Gestão de upload de fotos dos alunos.
+- **Back-end:** Node.js com Express.
+- **ORM:** Sequelize (MySQL/MariaDB).
+- **Uploads:** Multer para processamento de fotos de perfil dos alunos.
+- **Segurança:** Autenticação via JWT (JSON Web Token).
 
-🐳 Infraestrutura e Deployment (Self-Hosted)
-O projeto não roda apenas no "localhost" comum; ele foi arquitetado para um ambiente de produção real:
+## 📂 Funcionalidades
 
-Ambiente: Servidor Linux dedicado.
-
-Containerização: Docker e Docker Compose isolando a API e o Banco de Dados.
-
-Persistência: Volumes Docker configurados para garantir a segurança das fotos e dos dados dos alunos.
-
-📌 Funcionalidades Principais
-Gestão de Usuários: Cadastro e autenticação (JWT).
-
-Gestão de Alunos: CRUD completo de informações acadêmicas.
-
-Upload de Fotos: Sistema de armazenamento de imagens de perfil dos alunos.
-
-Segurança: Senhas criptografadas e rotas protegidas.
-
-🏁 Como Executar
-Via Docker (Recomendado)
-Bash
-
-# Clone o projeto
-
-git clone https://github.com/robjuniorart/api-rest-usuarios-alunos.git
-
-# Suba os containers (API + DB)
-
-docker-compose up -d
+- CRUD completo de **Alunos**.
+- Cadastro e login de **Usuários**.
+- Sistema de **Upload de Imagens** associadas aos alunos.
