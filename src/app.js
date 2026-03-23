@@ -5,6 +5,7 @@ import "./database";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import delay from "express-delay";
 
 import homeRoutes from "./routes/homeRoutes";
 import userRoutes from "./routes/userRoutes";
@@ -34,6 +35,7 @@ class App {
   middlewares() {
     this.app.use(cors(corsOptions));
     this.app.use(helmet());
+    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true })); //Permite que sua API receba dados de formulários complexos (comuns em sistemas web tradicionais).
     this.app.use(express.json()); //A linha mais importante. Ela permite que sua API entenda dados enviados no formato JSON, que é o padrão de comunicação para aplicações modernas (como o React que você está estudando).
     this.app.use(
