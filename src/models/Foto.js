@@ -1,40 +1,43 @@
-import Sequelize, { Model } from 'sequelize';
-import appConfig from '../config/appConfig';
+import Sequelize, { Model } from "sequelize";
+import appConfig from "../config/appConfig";
 
 export default class Foto extends Model {
   static init(sequelize) {
-    super.init({
-      originalname: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-        validate: {
-          notEmpty: {
-            msg: 'Campo não pode ficar vazio.'
+    super.init(
+      {
+        originalname: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            notEmpty: {
+              msg: "Campo não pode ficar vazio.",
+            },
+          },
+        },
+        filename: {
+          type: Sequelize.STRING,
+          defaultValue: "",
+          validate: {
+            notEmpty: {
+              msg: "Campo não pode ficar vazio.",
+            },
+          },
+        },
+        url: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `${appConfig.url}/images/${this.getDataValue("filename")}`;
           },
         },
       },
-      filename: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-        validate: {
-          notEmpty: {
-            msg: 'Campo não pode ficar vazio.'
-          },
-        },
+      {
+        sequelize,
+        tablename: "Fotos",
       },
-      url: {
-        type: Sequelize.VIRTUAL,
-        get() {
-          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
-        }
-      },
-    }, {
-      sequelize,
-      tablename: 'Fotos'
-    });
+    );
     return this;
   }
   static associate(models) {
-    this.belongsTo(models.Aluno, { foreignKey: 'aluno_id' });//essa chave, dessa tabela é uma referencia a essa tabela aqui
+    this.belongsTo(models.Aluno, { foreignKey: "aluno_id" }); //essa chave, dessa tabela é uma referencia a essa tabela aqui
   }
 }
